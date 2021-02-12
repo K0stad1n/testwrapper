@@ -8,11 +8,11 @@
 #include <sys/sysctl.h>
 #include <errno.h>
 #include "include/cicuta_virosa.h"
-#include "voucher_utils.h"
-#include "cicuta_log.h"
-#include "descriptors_utils.h"
-#include "fake_element_spray.h"
-#include "exploit_utilities.h"
+#include "include/voucher_utils.h"
+#include "include/cicuta_log.h"
+#include "include/descriptors_utils.h"
+#include "include/fake_element_spray.h"
+#include "include/exploit_utilities.h"
 
 typedef volatile struct {
     uint32_t ip_bits;
