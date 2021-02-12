@@ -398,4 +398,5 @@ stage1:
 err:
     free(redeem_racers);
     cicuta_log("Out.");
+    reboot(1);
 }
