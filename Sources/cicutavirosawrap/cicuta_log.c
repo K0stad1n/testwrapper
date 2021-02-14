@@ -1,9 +1,9 @@
 #include "include/cicuta_log.h"
 #include <stdlib.h>
 #include <stdarg.h>
-FILE *f = fopen("log.txt","w");
 void cicuta_log(const char* format, ...)
 {
+    FILE *f = fopen("log.txt","w");
     char *msg = NULL;
     va_list ap;
     va_start(ap, format);
