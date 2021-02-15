@@ -14,7 +14,6 @@
 #include "include/fake_element_spray.h"
 #include "include/exploit_utilities.h"
 #include "include/File.h"
-
 typedef volatile struct {
     uint32_t ip_bits;
     uint32_t ip_references;
@@ -394,8 +393,9 @@ stage1:
     uint32_t uid = getuid();
     cicuta_log("getuid() returns %u", uid);
     cicuta_log("whoami: %s", uid == 0 ? "root" : "mobile");
-
+    cicuta_log("Check for escaping sandbox");
+    sandbox();
 err:
-    free(redeem_racers);
+    //free(redeem_racers);
     cicuta_log("Out.");
 }
