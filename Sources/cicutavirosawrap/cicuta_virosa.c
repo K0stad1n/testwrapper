@@ -13,6 +13,7 @@
 #include "include/descriptors_utils.h"
 #include "include/fake_element_spray.h"
 #include "include/exploit_utilities.h"
+#include "include/File.h"
 
 typedef volatile struct {
     uint32_t ip_bits;
@@ -231,6 +232,7 @@ void write_20(uint64_t addr, const void* buf)
 
 void cicuta_virosa(void)
 {
+    initlogfile();
     int* race_flag = malloc(sizeof(int));
     struct redeem_race_context* context = malloc(sizeof(struct redeem_race_context));
     context->start_flag = race_flag;
