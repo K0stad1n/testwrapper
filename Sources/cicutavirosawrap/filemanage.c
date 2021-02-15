@@ -8,7 +8,9 @@
 #include "stdio.h"
 #include "include/File.h"
 void initlogfile(){
-    FILE *f = fopen("log.txt", "a+");
+    remove("log.txt");
+    FILE *f = fopen("log.txt", "w");
+    fclose(f);
 }
 
 void writetofile(char* msg){
