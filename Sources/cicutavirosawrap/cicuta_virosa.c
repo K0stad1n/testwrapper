@@ -394,7 +394,7 @@ stage1:
     cicuta_log("getuid() returns %u", uid);
     cicuta_log("whoami: %s", uid == 0 ? "root" : "mobile");
     cicuta_log("Check for escaping sandbox");
-    sandbox();
+
 err:
     //free(redeem_racers);
     cicuta_log("Out.");
