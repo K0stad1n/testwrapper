@@ -13,5 +13,3 @@
 #endif /* File_h */
 void initlogfile();
 void writetofile(char* msg);
-
-writetofile
