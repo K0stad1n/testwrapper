@@ -232,7 +232,7 @@ void write_20(uint64_t addr, const void* buf)
 
 void cicuta_virosa(void)
 {
-    initlogfile();
+    //initlogfile();
     int* race_flag = malloc(sizeof(int));
     struct redeem_race_context* context = malloc(sizeof(struct redeem_race_context));
     context->start_flag = race_flag;
