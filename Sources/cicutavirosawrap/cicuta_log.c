@@ -4,11 +4,11 @@
 #include <unistd.h>
 void cicuta_log(const char* format, ...)
 {
-    FILE *f;
-    f = fopen("scores.dat", "rb+");
-    if(f == NULL)
-    {
-        f = fopen("scores.dat", "wb");
+    FILE *f = fopen("log.txt", "at");
+    if (!f) f = fopen("log.txt", "wt");
+    if (!f) {
+        printf("can not open logfile.txt for writing.\n");
+        return;
     }
     char *msg = NULL;
     va_list ap;
