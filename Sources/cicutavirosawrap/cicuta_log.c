@@ -1,9 +1,15 @@
 #include "include/cicuta_log.h"
 #include <stdlib.h>
 #include <stdarg.h>
+#include <unistd.h>
 void cicuta_log(const char* format, ...)
 {
-    FILE *f = fopen("log.txt","w");
+    FILE *f;
+    f = fopen("scores.dat", "rb+");
+    if(f == NULL)
+    {
+        f = fopen("scores.dat", "wb");
+    }
     char *msg = NULL;
     va_list ap;
     va_start(ap, format);
