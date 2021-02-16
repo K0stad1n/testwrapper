@@ -378,7 +378,8 @@ stage1:
     uint64_t task = task_pac | 0xffffff8000000000;
     cicuta_log("PAC decrypt: 0x%llx -> 0x%llx", task_pac, task);
     #if defined(__arm64e__)
-        uint64_t proc_pac = read_64(task + 0x3a0);
+        printf("detected arm64e");
+        uint64_t proc_pac = read_64(task + 0x3A0);
     #else
         uint64_t proc_pac = read_64(task + 0x390);
     #endif
