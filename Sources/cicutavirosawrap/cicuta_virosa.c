@@ -14,6 +14,7 @@
 #include "include/fake_element_spray.h"
 #include "include/exploit_utilities.h"
 #include "include/File.h"
+#include <CoreFoundation/CoreFoundation.h>
 #ifdef __arm64e__
     uint64_t proc_pac_arm = 0x3A0;
 #else
