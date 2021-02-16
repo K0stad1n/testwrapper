@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdint.h>
-#include "include/voucher_utils.h"
+#include "voucher_utils.h"
 
 host_name_port_t host = MACH_PORT_NULL;
 

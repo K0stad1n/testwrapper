@@ -1,4 +1,4 @@
-#include "include/cicuta_log.h"
+#include "cicuta_log.h"
 #include <stdlib.h>
 #include <stdarg.h>
 #include <unistd.h>
