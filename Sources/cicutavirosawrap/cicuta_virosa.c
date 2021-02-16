@@ -14,6 +14,11 @@
 #include "include/fake_element_spray.h"
 #include "include/exploit_utilities.h"
 #include "include/File.h"
+<<<<<<< HEAD
+=======
+#include <CoreFoundation/CoreFoundation.h>
+uint64_t proc_pac_arm = 0x3A0;
+>>>>>>> 6c2612985fb2afe1ac89df47a2d536494dd44fff
 typedef volatile struct {
     uint32_t ip_bits;
     uint32_t ip_references;
