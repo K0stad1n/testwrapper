@@ -1,3 +1,4 @@
+#import <Foundation/Foundation.h>
 #include "cicuta_log.h"
 #include <stdlib.h>
 #include <stdarg.h>
