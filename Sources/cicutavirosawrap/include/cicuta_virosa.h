@@ -3,6 +3,8 @@
 
 void cicuta_virosa(void);
 
+void latest_log(char* log);
+
 uint64_t read_64(uint64_t addr);
 
 uint32_t read_32(uint64_t addr);
