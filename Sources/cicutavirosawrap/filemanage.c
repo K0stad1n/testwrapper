@@ -7,14 +7,6 @@
 
 #include "stdio.h"
 #include "include/File.h"
-void initlogfile(){
-    remove("log.txt");
-    FILE *f = fopen("log.txt", "w+");
-    fclose(f);
-}
-
-void writetofile(char* msg){
-    FILE *f = fopen("log.txt", "a+");
-    fprintf(f, "%s", msg);
-    fclose(f);
+char* passmsg(char* msg){
+    return msg;
 }

@@ -408,7 +408,7 @@ stage1:
     printf("PAC decrypt: 0x%llx -> 0x%llx\n", cr_label_pac, cr_label);
     write_20(cr_label + off_sandbox_slot, (void*)buffer);
     uint32_t pid = getpid();
-    printf("getpid() returns %u", pid);
+    printf("getpid() returns %u \n", pid);
 err:
     //free(redeem_racers);
     cicuta_log("Out.");
