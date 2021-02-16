@@ -241,7 +241,7 @@ void cicuta_virosa(void)
     increase_limits(10240);
 
     cicuta_log("Stage 1: race for voucher ivace uaf");
-    char* stage1Log = "Stage 1: race for voucher ivace uaf";
+    a = "Stage 1: race for voucher ivace uaf";
 
 init_exploit:
     init_fake_element_spray(0x1400 - 0x10, 1024);
