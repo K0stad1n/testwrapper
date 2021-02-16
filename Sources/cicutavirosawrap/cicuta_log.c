@@ -10,7 +10,7 @@ void cicuta_log(const char* format, ...)
     va_start(ap, format);
     vasprintf(&msg, format, ap);
     printf("%s\n", msg);
-    NSString *message = [NSString stringWithFormat:@"%s", msg];
+    char *message = msg;
     va_end(ap);
     free(msg);
 }
