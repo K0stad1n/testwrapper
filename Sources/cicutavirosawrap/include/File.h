@@ -11,4 +11,3 @@
 #include <stdio.h>
 
 #endif /* File_h */
-char* passmsg(char* msg);

@@ -10,7 +10,6 @@ void cicuta_log(const char* format, ...)
     va_start(ap, format);
     vasprintf(&msg, format, ap);
     printf("%s\n", msg);
-    passmsg(msg);
     va_end(ap);
     free(msg);
 }
